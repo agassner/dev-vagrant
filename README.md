@@ -16,8 +16,8 @@ This project provides a mechanism to automate several tasks to be able to set up
 ## Installation/Provision
 
 ```
-git clone https://github.com/agassner/sv-vagrant.git
-cd sv-vagrant
+git clone https://github.com/agassner/dev-vagrant.git
+cd dev-vagrant
 make install_vagrant_plugins
 vagrant up
 ...
