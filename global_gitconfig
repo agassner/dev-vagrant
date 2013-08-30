@@ -1,0 +1,38 @@
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+[user]
+	name = My name
+	email = my_email@bskyb.com
+[format]
+  pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
+[alias]
+  b = branch
+  ba = branch -a
+  ci = commit
+  co = checkout
+  d = diff
+  dc = diff --cached
+  fp = format-patch
+  g = !git gui &
+  gr = log --graph
+  go = log --graph --pretty=oneline --abbrev-commit
+  k = !gitk &
+  ka = !gitk --all &
+  lc = log ORIG_HEAD.. --stat --no-merges
+  lp = --stat log --patch-with-stat
+  mnf = merge --no-ff
+  mnff = merge --no-ff
+  mt = merge mergetool
+  p = format-patch -1
+  serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+  sra = svn rebase --all
+  sh = !gitkit-sh
+  st = status
+  stm = status --untracked=no
+  stfu = status --untrackedked=no
+  pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
+	path = 
