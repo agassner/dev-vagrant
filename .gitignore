@@ -1,0 +1,5 @@
+*~
+chef/tmp
+.vagrant*
+*.lock
+.DS_Store
