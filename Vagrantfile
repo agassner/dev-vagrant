@@ -21,6 +21,8 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
+  config.vm.synced_folder "#{ENV['HOME']}/workspace", "/home/vagrant/workspace"
+
   config.berkshelf.enabled = true
 
   config.vm.provision :chef_solo do |chef|
