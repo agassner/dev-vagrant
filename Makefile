@@ -7,7 +7,7 @@ install_vagrant_plugins:
 	vagrant plugin install vagrant-vbguest
 
 install_os_dependencies:
-	sudo apt-get install -y fontconfig libfontconfig1-dev libfreetype6 libfreetype6-dev
+	sudo apt-get install -y fontconfig libfontconfig1-dev libfreetype6 libfreetype6-dev libmagickwand-dev
 
 install_npm_dependencies:
 	@echo "Installing npm global dependencies"
@@ -24,4 +24,11 @@ install_sbt:
 setup_other_things:
 	cp global_gitconfig ~/.gitconfig
 
-# npm install && bower install && grunt
+# Things to do:
+#   OS:
+#     $ sudo aptitude update && sudo aptitude upgrade
+#     $ dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+#   For nodejs projects:
+#     $ npm install && bower install && grunt
+#   For ruby projects:
+#     $ gem update --system && gem update --no-ri --no-rdoc && bundle install

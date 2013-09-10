@@ -18,7 +18,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider :virtualbox do |v, override|
     override.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    v.customize ["modifyvm", :id, "--memory", "2048"]
+    v.customize ["modifyvm", :id, "--memory", "3072"]
+    v.customize ["modifyvm", :id, "--cpus", "2"]
   end
 
   config.vm.synced_folder "#{ENV['HOME']}/workspace", "/home/vagrant/workspace"
@@ -33,6 +34,9 @@ Vagrant.configure("2") do |config|
     # chef.add_recipe 'java7'
     chef.add_recipe 'nodejs'
     chef.add_recipe 'mongodb::10gen_repo'
+    chef.add_recipe 'sqlite'
+    chef.add_recipe 'mysql::server'
+    chef.add_recipe 'postgresql::server'
 
     chef.add_recipe 'ruby_build'
     chef.add_recipe 'rbenv::user'
@@ -52,10 +56,10 @@ Vagrant.configure("2") do |config|
       'rbenv' => {
         'user_installs' => [ {
           'user' => 'vagrant',
-          'global' => '1.9.3-p448',
-          'rubies' => [ '1.9.3-p448' ],
+          'global' => '2.0.0-p247',
+          'rubies' => [ '2.0.0-p247' ],
           'gems' => {
-            '1.9.3-p448' => [
+            '2.0.0-p247' => [
               { 'name' => 'bundler' }
             ]
           },
@@ -64,9 +68,19 @@ Vagrant.configure("2") do |config|
       'rbenv-alias' => {
         'user_rubies' => [ {
           'user' => 'vagrant',
-          'installed' => '1.9.3-p448',
-          'alias' => '1.9.3'
+          'installed' => '2.0.0-p247',
+          'alias' => '2.0.0'
         } ]
+      },
+      'mysql' => {
+        'server_root_password' => '',
+        'server_repl_password' => '',
+        'server_debian_password' => ''
+      },
+      'postgresql' => {
+        'password' => {
+          'postgres' => ''
+        }
       }
     }
   end

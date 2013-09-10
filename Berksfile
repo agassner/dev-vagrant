@@ -7,6 +7,9 @@ cookbook 'java'
 cookbook 'java7', path: './chef/java7'
 cookbook 'nodejs'
 cookbook 'mongodb'
+cookbook 'sqlite'
+cookbook 'mysql'
+cookbook 'postgresql'
 
 cookbook 'ruby_build'
 cookbook 'rbenv', github: 'fnichol/chef-rbenv', :branch => "e10f98d5fd07bdb8d212ebf42160b65c39036b90"
