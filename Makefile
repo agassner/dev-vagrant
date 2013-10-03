@@ -17,7 +17,7 @@ install_npm_dependencies:
 
 install_sbt:
 	@echo "Installing sbt"
-	@wget http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.4/sbt.tgz
+	@wget http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.0/sbt.tgz
 	@tar xvzf sbt.tgz && mv sbt ~/ && mkdir ~/bin && ln -s ~/sbt/bin/sbt ~/bin/sbt && source ~/.profile
 	@rm sbt.tgz
 
@@ -28,7 +28,3 @@ setup_other_things:
 #   OS:
 #     $ sudo aptitude update && sudo aptitude upgrade
 #     $ dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
-#   For nodejs projects:
-#     $ npm install && bower install && grunt
-#   For ruby projects:
-#     $ gem update --system && gem update --no-ri --no-rdoc && bundle install
