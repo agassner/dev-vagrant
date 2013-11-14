@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
         }
       },
       'nodejs' => {
-        'version' => '0.10.15'
+        'version' => '0.10.22'
       },
       'rbenv' => {
         'user_installs' => [ {
