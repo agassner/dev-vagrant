@@ -33,6 +33,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe 'chef-golang'
     chef.add_recipe 'java::oracle'
     # chef.add_recipe 'java7'
+    chef.add_recipe 'maven'
     chef.add_recipe 'nodejs'
     chef.add_recipe 'mongodb::10gen_repo'
     chef.add_recipe 'sqlite'
@@ -49,6 +50,14 @@ Vagrant.configure("2") do |config|
         'jdk_version' => '7',
         'oracle' => {
           'accept_oracle_download_terms' => 'true'
+        }
+      },
+      'maven' => {
+        'version' => '3.1.1',
+        '3.1.1' => {
+          'url' => 'http://mirror.catn.com/pub/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz',
+          'checksum' => '59088c62c14b996d597bbd55e720866b0e13e36daed8a46a81c01058ee74bd54',
+          'version' => '3.1.1'
         }
       },
       'nodejs' => {
