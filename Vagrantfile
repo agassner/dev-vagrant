@@ -2,7 +2,7 @@
 # vim: set ft=ruby sw=2 :
 
 Vagrant.configure("2") do |config|
-  config.omnibus.chef_version = "11.4.0"
+  config.omnibus.chef_version = "11.6.0"
 
   config.vm.define "dev-vagrant"
   config.vm.box = "precise64"
@@ -33,18 +33,15 @@ Vagrant.configure("2") do |config|
     chef.add_recipe 'git'
     chef.add_recipe 'chef-golang'
     chef.add_recipe 'java::oracle'
-    # chef.add_recipe 'java7'
-    chef.add_recipe 'maven'
     chef.add_recipe 'nodejs'
+    chef.add_recipe 'ruby_build'
+    chef.add_recipe 'rbenv::user'
+    chef.add_recipe 'rbenv::vagrant'
     chef.add_recipe 'mongodb::10gen_repo'
     chef.add_recipe 'sqlite'
     chef.add_recipe 'mysql::server'
     chef.add_recipe 'postgresql::server'
-
-    chef.add_recipe 'ruby_build'
-    chef.add_recipe 'rbenv::user'
-    chef.add_recipe 'rbenv-alias'
-    chef.add_recipe 'rbenv-sudo'
+    chef.add_recipe "vim"
 
     chef.json = {
       'java' => {
@@ -53,35 +50,24 @@ Vagrant.configure("2") do |config|
           'accept_oracle_download_terms' => 'true'
         }
       },
-      'maven' => {
-        'version' => '3.1.1',
-        '3.1.1' => {
-          'url' => 'http://mirror.catn.com/pub/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz',
-          'checksum' => '59088c62c14b996d597bbd55e720866b0e13e36daed8a46a81c01058ee74bd54',
-          'version' => '3.1.1'
-        }
-      },
       'nodejs' => {
         'version' => '0.10.22'
       },
+      'ruby_build' => {
+        'git_ref' => 'v20131122.1',
+        'upgrade' => 'true'
+      },
       'rbenv' => {
-        'user_installs' => [ {
+        'user_installs' => [{
           'user' => 'vagrant',
-          'global' => '2.0.0-p247',
-          'rubies' => [ '2.0.0-p247' ],
+          'global' => '2.0.0-p353',
+          'rubies' => [ '2.0.0-p353' ],
           'gems' => {
-            '2.0.0-p247' => [
+            '2.0.0-p353' => [
               { 'name' => 'bundler' }
             ]
           },
-        } ]
-      },
-      'rbenv-alias' => {
-        'user_rubies' => [ {
-          'user' => 'vagrant',
-          'installed' => '2.0.0-p247',
-          'alias' => '2.0.0'
-        } ]
+        }]
       },
       'mysql' => {
         'server_root_password' => '',
