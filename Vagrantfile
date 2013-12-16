@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
         }
       },
       'nodejs' => {
-        'version' => '0.10.22'
+        'version' => '0.10.23'
       },
       'ruby_build' => {
         'git_ref' => 'v20131122.1',
