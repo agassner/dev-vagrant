@@ -11,7 +11,7 @@ install_os_dependencies:
 
 install_npm_dependencies:
 	@echo "Installing npm global dependencies"
-	sudo npm install -g phantomjs karma yo grunt-cli bower
+	sudo npm install -g phantomjs karma yo grunt-cli bower generator-webapp
 	@echo "Fixing permissions"
 	sudo chown -R vagrant ~/ && sudo chgrp -R vagrant ~/
 
